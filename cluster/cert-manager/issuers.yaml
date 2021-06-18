@@ -1,0 +1,15 @@
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: route53-issuer
+  namespace: cert-manager
+spec:
+  acme:
+    email: admin@jrhorner.com
+    server: https://acme-v02.api.letsencrypt.org/directory
+    privateKeySecretRef:
+      name: lets-encrypt-private-key
+    solvers:
+    - dns01:
+        route53:
+          region: us-east-1
