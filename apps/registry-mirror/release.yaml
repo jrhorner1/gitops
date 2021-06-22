@@ -7,7 +7,7 @@ spec:
   releaseName: registry-mirror
   chart:
     spec:
-      chart: registry
+      chart: docker-registry
       sourceRef:
         kind: HelmRepository
         name: twuni
