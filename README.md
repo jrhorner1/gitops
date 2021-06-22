@@ -2,5 +2,17 @@
 
 ### Bootstrap
 ```bash
-flux bootstrap github --owner=jrhorner1 --repository=gitops --branch main --path=./cluster --personal
+KEY_FP=532458423DABB727A756D856F1F771FB906E1D53
+
+gpg --export-secret-keys --armor "${KEY_FP}" | 
+kubectl create secret generic sops-gpg \
+    --namespace=flux-system \
+    --from-file=sops.asc=/dev/stdin
+
+flux bootstrap github \
+    --owner=jrhorner1 \
+    --repository=gitops \
+    --branch main \
+    --path=./cluster \
+    --personal
 ```
