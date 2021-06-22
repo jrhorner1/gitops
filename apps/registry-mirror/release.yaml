@@ -4,7 +4,7 @@ metadata:
   name: registry-mirror
   namespace: registry
 spec:
-  releaseName: registry-mirror
+  releaseName: registry
   chart:
     spec:
       chart: docker-registry
@@ -19,7 +19,6 @@ spec:
   # Default values
   # https://github.com/twuni/docker-registry.helm/blob/main/values.yaml
   values:
-    fullnameOverride: registry-mirror
     ingress:
       enabled: true
       path: /
@@ -28,8 +27,6 @@ spec:
       annotations: 
         kubernetes.io/ingress.class: nginx
         cert-manager.io/cluster-issuer: route53-issuer
-      # labels:
-      #   app: registry-mirror
       tls: 
         - secretName: registry-mirror-tls
           hosts:
