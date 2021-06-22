@@ -16,3 +16,14 @@ flux bootstrap github \
     --path=./cluster \
     --personal
 ```
+
+### Secrets
+#### Encrypt
+```bash
+sops --config .sops.yaml -e --in-place path/to/secret.yaml
+```
+#### Decrypt
+See [upstream issue](https://github.com/mozilla/sops/issues/884) for additional details.
+```bash
+sops --config <(echo '') -d path/to/secret.yaml
+```
