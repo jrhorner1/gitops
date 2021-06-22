@@ -28,8 +28,8 @@ spec:
       annotations: 
         kubernetes.io/ingress.class: nginx
         cert-manager.io/cluster-issuer: route53-issuer
-      labels:
-        app: registry-mirror
+      # labels:
+      #   app: registry-mirror
       tls: 
         - secretName: registry-mirror-tls
           hosts:
