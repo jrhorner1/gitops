@@ -20,7 +20,7 @@ spec:
   # Default values
   # https://github.com/jetstack/cert-manager/blob/master/deploy/charts/cert-manager/values.yaml
   values:
-    installCRDs: true
+    installCRDs: false
     volumes:
       - name: route53-credentials
         secret:
