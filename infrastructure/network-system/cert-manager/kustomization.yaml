@@ -3,5 +3,5 @@ kind: Kustomization
 resources:
 - secret.yaml
 - https://github.com/jetstack/cert-manager/releases/download/v1.4.0/cert-manager.crds.yaml
-- helm-release.yaml
+- helmRelease.yaml
 - issuers.yaml
