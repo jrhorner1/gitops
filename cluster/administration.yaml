@@ -1,13 +1,13 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
 kind: Kustomization
 metadata:
-  name: apps
+  name: administration
   namespace: flux-system
 spec:
   interval: 10m0s
   dependsOn:
-    - name: administration
-  path: ./apps
+    - name: infrastructure
+  path: ./administration
   prune: true
   sourceRef:
     kind: GitRepository
