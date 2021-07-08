@@ -1,0 +1,26 @@
+# Default values
+# https://github.com/vmware-tanzu/helm-charts/blob/main/charts/velero/values.yaml
+
+initContainers:
+  - name: velero-plugin-for-aws
+    image: velero/velero-plugin-for-aws:v1.2.0
+    imagePullPolicy: IfNotPresent
+    volumeMounts:
+      - mountPath: /target
+        name: plugins
+configuration:
+  provider: aws
+  backupStorageLocation:
+    name: velero-backups
+    bucket: velero-bhu0exzeqd0eghv
+    config: {
+      region: us-east-1
+    }
+  volumeSnapshotLocation:
+    name: velero-snapshots
+    config: {
+      region: us-east-1
+    }
+credentials:
+  existingSecret: velero-aws-credentials
+deployRestic: true

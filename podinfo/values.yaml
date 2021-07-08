@@ -1,0 +1,15 @@
+# Default values
+# https://github.com/stefanprodan/podinfo/blob/master/charts/podinfo/values.yaml
+
+ingress:
+  enabled: true
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: route53-issuer
+  path: "/"
+  hosts:
+    - podinfo.jrhorner.com
+  tls: 
+    - secretName: podinfo-tls
+      hosts:
+        - podinfo.jrhorner.com
