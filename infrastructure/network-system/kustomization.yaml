@@ -6,3 +6,4 @@ resources:
 - metallb
 - cert-manager
 - nginx-ingress
+- blocky
