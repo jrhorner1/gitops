@@ -5,12 +5,12 @@ existingConfigMap: metallb-config
 
 controller: 
   image: 
-    registry: quay.io
+    registry: docker.io
     repository: metallb/controller
-    tag: v0.10.2
+    tag: v0.10
 
 speaker: 
   image: 
-    registry: quay.io
+    registry: docker.io
     repository: metallb/speaker
-    tag: v0.10.2
+    tag: v0.10
