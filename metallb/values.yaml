@@ -1,16 +1,4 @@
 # Default values
-  # https://github.com/bitnami/charts/blob/master/bitnami/metallb/values.yaml
+# https://github.com/metallb/metallb/blob/main/charts/metallb/values.yaml
 
 existingConfigMap: metallb-config
-
-controller: 
-  image: 
-    registry: docker.io
-    repository: metallb/controller
-    tag: v0.10
-
-speaker: 
-  image: 
-    registry: docker.io
-    repository: metallb/speaker
-    tag: v0.10
