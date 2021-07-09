@@ -4,9 +4,8 @@
 
 image:
   tag: v0.14
-env: {
+env: 
   TZ: "America/New_York"
-}
 replicas: 3
 config: |
   upstream:
