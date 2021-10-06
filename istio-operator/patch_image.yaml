@@ -1,0 +1,11 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: istio-operator
+spec:
+  template:
+    spec:
+      containers:
+        - image: docker.io/istio/operator:1.11.3 
+#       - image: gcr.io/istio-testing/operator:1.11-dev
+          
