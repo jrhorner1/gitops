@@ -8,5 +8,5 @@ spec:
     spec:
       containers:
         - name: istio-operator
-          image: docker.io/istio/operator:1.11.3 
+          image: docker.io/querycapistio/operator:1.11.3 
           
