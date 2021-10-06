@@ -5,7 +5,7 @@ metadata:
   name: istio-default
 spec:
   hub: docker.io/querycapistio
-  profile: demo
+  profile: default
   components:
     pilot:
       k8s: # each components have to set this
