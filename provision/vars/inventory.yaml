@@ -1,0 +1,27 @@
+---
+kubernetes:
+  children:
+    master:
+      hosts:
+        k-master01:
+          ansible_host: 192.168.11.11
+        k-master02:
+          ansible_host: 192.168.11.12
+        k-master03:
+          ansible_host: 192.168.11.13
+      vars:
+        ansible_user: ubuntu
+    worker:
+      hosts:
+        k-node1:
+          ansible_host: 192.168.11.14
+        k-node2:
+          ansible_host: 192.168.11.15
+        k-node3:
+          ansible_host: 192.168.11.16
+        k-node4:
+          ansible_host: 192.168.11.17
+        k-node5:
+          ansible_host: 192.168.11.18
+      vars:
+        ansible_user: ubuntu
