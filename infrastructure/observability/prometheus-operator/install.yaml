@@ -5,6 +5,8 @@ metadata:
   namespace: flux-system
 spec:
   interval: 15m
+  dependsOn:
+    - name: kube-prometheus-crds
   path: ./manifests
   prune: true
   sourceRef:
