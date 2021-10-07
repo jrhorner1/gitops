@@ -1,0 +1,19 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: GitRepository
+metadata:
+  name: kube-prometheus-crds
+  namespace: default
+spec:
+  interval: 5m
+  url: https://github.com/prometheus-operator/kube-prometheus/tree/main/manifests/setup
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: GitRepository
+metadata:
+  name: kube-prometheus
+  namespace: default
+spec:
+  interval: 5m
+  url: https://github.com/prometheus-operator/kube-prometheus/tree/main/manifests
+  ignore: |
+    setup/
