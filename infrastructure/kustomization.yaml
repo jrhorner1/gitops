@@ -1,0 +1,13 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- sources
+- openebs 
+- metallb
+- istio-operator 
+- istio-system # DependsOn metallb
+- cert-manager
+- nginx-ingress # DependsOn metallb
+- kiali-operator # DependsOn istio-system
+- prometheus-operator

@@ -1,0 +1,12 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+kind: Kustomization
+metadata:
+  name: istio-operator-crds
+  namespace: flux-system
+spec:
+  interval: 15m
+  path: ./manifests/charts/base/crds
+  prune: false
+  sourceRef:
+    kind: GitRepository
+    name: kube-prometheus
