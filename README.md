@@ -4,16 +4,20 @@
 ```bash
 KEY_FP=532458423DABB727A756D856F1F771FB906E1D53
 
+kubectl create namespace flux-system
+
 gpg --export-secret-keys --armor "${KEY_FP}" | 
 kubectl create secret generic sops-gpg \
     --namespace=flux-system \
     --from-file=sops.asc=/dev/stdin
 
+export GITHUB_TOKEN=
+
 flux bootstrap github \
     --owner=jrhorner1 \
     --repository=gitops \
     --branch main \
-    --path=./cluster \
+    --path=./clusters/production \
     --personal
 ```
 
