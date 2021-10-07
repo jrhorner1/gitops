@@ -7,7 +7,7 @@ spec:
   interval: 5m
   url: https://github.com/prometheus-operator/kube-prometheus
   ref:
-    tag: 0.8.0
+    tag: v0.8.0
   ignore: |
     # exclude all
     /*
