@@ -1,0 +1,38 @@
+apiVersion: install.istio.io/v1alpha1
+kind: IstioOperator
+metadata:
+  namespace: istio-system
+  name: istio-default
+spec:
+  hub: docker.io/querycapistio
+  profile: default
+  components:
+    pilot:
+      k8s: # each components have to set this
+        affinity: &affinity
+          nodeAffinity:
+            preferredDuringSchedulingIgnoredDuringExecution:
+            - preference:
+                matchExpressions:
+                - key: beta.kubernetes.io/arch
+                  operator: In
+                  values:
+                  - arm64
+              weight: 2
+            requiredDuringSchedulingIgnoredDuringExecution:
+              nodeSelectorTerms:
+              - matchExpressions:
+                - key: beta.kubernetes.io/arch
+                  operator: In
+                  values:
+                  - arm64
+    egressGateways:
+    - name: istio-egressgateway
+      k8s:
+        affinity: *affinity
+      enabled: true
+    ingressGateways:
+    - name: istio-ingressgateway
+      k8s:
+        affinity: *affinity
+      enabled: true

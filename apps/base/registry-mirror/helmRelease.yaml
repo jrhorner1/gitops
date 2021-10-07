@@ -1,0 +1,50 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: registry-mirror
+  namespace: registry
+spec:
+  releaseName: registry
+  chart:
+    spec:
+      chart: docker-registry
+      sourceRef:
+        kind: HelmRepository
+        name: twuni
+        namespace: flux-system
+  interval: 5m
+  install:
+    remediation:
+      retries: 3
+  # Default values
+  # https://github.com/twuni/docker-registry.helm/blob/main/values.yaml
+  values:
+    persistence:
+      accessMode: 'ReadWriteOnce'
+      enabled: true
+      size: 10Gi
+      storageClass: 'openebs-jiva-default'
+    configData:
+      version: 0.1
+      log:
+        fields:
+          service: registry
+      storage:
+        cache:
+          blobdescriptor: inmemory
+        filesystem:
+          rootdirectory: /var/lib/registry
+        delete:
+          enabled: true
+      http:
+        addr: :5000
+        headers:
+          X-Content-Type-Options: [nosniff]
+        host: http://registry-mirror.jrhorner.com
+      health:
+        storagedriver:
+          enabled: true
+          interval: 10s
+          threshold: 3
+    proxy:
+      enabled: true

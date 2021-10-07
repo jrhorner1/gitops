@@ -1,0 +1,12 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: istio-operator
+  name: istio-operator
+spec:
+  template:
+    spec:
+      containers:
+        - name: istio-operator
+          image: docker.io/querycapistio/operator:1.11.3 
+          

@@ -1,0 +1,14 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ../base/podinfo
+  - ../base/blocky
+  - ../base/registry-mirror
+  - registry-mirror_secrets.yaml
+  - velero_secrets.yaml
+  - ../base/velero
+patchesStrategicMerge:
+  - podinfo-values.yaml
+  - blocky-values.yaml
+  - registry-mirror-values.yaml
+  - velero-values.yaml
