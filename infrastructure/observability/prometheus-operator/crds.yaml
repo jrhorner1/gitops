@@ -5,8 +5,8 @@ metadata:
   namespace: flux-system
 spec:
   interval: 15m
-  path: ./manifests/setup
-  prune: true
+  path: "./manifests/setup"
+  prune: false
   sourceRef:
     kind: GitRepository
     name: kube-prometheus-crds

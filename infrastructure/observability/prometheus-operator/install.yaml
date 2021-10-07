@@ -7,8 +7,7 @@ spec:
   interval: 15m
   dependsOn:
     - name: kube-prometheus-crds
-  path: ./manifests
-  prune: true
+  prune: false
   sourceRef:
     kind: GitRepository
     name: kube-prometheus

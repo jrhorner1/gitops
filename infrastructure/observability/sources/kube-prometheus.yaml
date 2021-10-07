@@ -12,5 +12,5 @@ spec:
     # exclude all
     /*
     # include manifests dir
-    !manifests/
+    !/manifests
     
