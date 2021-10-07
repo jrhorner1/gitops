@@ -5,7 +5,3 @@ resources:
 - sources
 - openebs
 - metallb
-- cert-manager
-- nginx-ingress
-- istio-operator
-- istio-system
