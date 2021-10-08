@@ -13,6 +13,6 @@ spec:
     kind: GitRepository
     name: kube-prometheus
   images: 
-    - name: istio-operator
+    - name: gcr.io/istio-testing/operator
       newname: docker.io/querycapistio/operator
       newtag: 1.11.3 
