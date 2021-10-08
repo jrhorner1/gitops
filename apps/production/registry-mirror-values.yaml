@@ -7,11 +7,14 @@ spec:
   releaseName: registry
   chart:
     spec:
-      version: "<=1.0.0"
+      version: "1.13.2"
   values:
     image:
       imagePullSecrets:
         - name: regcred
+    persistence:
+      size: 10Gi
+      storageClass: 'openebs-jiva-default'
     ingress:
       enabled: true
       path: /
@@ -19,9 +22,12 @@ spec:
         - registry-mirror.jrhorner.com
       annotations: 
         kubernetes.io/ingress.class: nginx
-        cert-manager.io/cluster-issuer: route53-issuer
-        backup.velero.io/backup-volumes: data
-      tls: 
-        - secretName: registry-mirror-tls
-          hosts:
-            - registry-mirror.jrhorner.com
+        # cert-manager.io/cluster-issuer: route53-issuer
+        # backup.velero.io/backup-volumes: data
+      # tls: 
+      #   - secretName: registry-mirror-tls
+      #     hosts:
+      #       - registry-mirror.jrhorner.com
+    configData:
+      http:
+        host: http://registry-mirror.jrhorner.com

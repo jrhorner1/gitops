@@ -22,8 +22,6 @@ spec:
     persistence:
       accessMode: 'ReadWriteOnce'
       enabled: true
-      size: 10Gi
-      storageClass: 'openebs-jiva-default'
     configData:
       version: 0.1
       log:
@@ -40,7 +38,6 @@ spec:
         addr: :5000
         headers:
           X-Content-Type-Options: [nosniff]
-        host: http://registry-mirror.jrhorner.com
       health:
         storagedriver:
           enabled: true
