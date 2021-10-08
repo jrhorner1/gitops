@@ -7,16 +7,16 @@ spec:
   chart:
     spec:
       version: "6.0.0"
-  # values:
-  #   ingress:
-  #     enabled: true
-  #     annotations:
-  #       kubernetes.io/ingress.class: nginx
-  #       cert-manager.io/cluster-issuer: route53-issuer
-  #     path: "/"
-  #     hosts:
-  #       - podinfo.jrhorner.com
-  #     tls: 
-  #       - secretName: podinfo-tls
-  #         hosts:
-  #           - podinfo.jrhorner.com
+  values:
+    ingress:
+      enabled: true
+      annotations:
+        kubernetes.io/ingress.class: nginx
+        # cert-manager.io/cluster-issuer: route53-issuer
+      path: "/"
+      hosts:
+        - podinfo.jrhorner.com
+      # tls: 
+      #   - secretName: podinfo-tls
+      #     hosts:
+      #       - podinfo.jrhorner.com
