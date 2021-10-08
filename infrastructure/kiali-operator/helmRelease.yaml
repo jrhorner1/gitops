@@ -21,6 +21,10 @@ spec:
   # Default values
   # https://github.com/kiali/helm-charts/blob/master/kiali-operator/values.yaml
   values:
+    image:
+      repo: quay.io/kiali/kiali-operator
+      tag: 1.41.0
+      digest: sha256:356f18f3a935b2f226093720b65383048249413ed99da72c87d5be58cc46661c
     cr:
       create: true
       namespace: istio-system
