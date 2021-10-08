@@ -1,0 +1,15 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: GitRepository
+metadata:
+  name: metallb
+  namespace: default
+spec:
+  interval: 5m
+  url: https://github.com/metallb/metallb
+  ref:
+    tag: v0.10.3
+  ignore: |
+    # exclude all
+    /*
+    # include manifests dir
+    !/manifests
