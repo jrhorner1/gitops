@@ -20,5 +20,7 @@ spec:
   # Default values
   # https://github.com/openebs/charts/blob/master/charts/openebs/values.yaml
   values:
+    legacy:
+      enabled: false
     jiva:
       enabled: true
