@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: kiali-operator
-      version: 1.41.0
+      version: 1.40.1
       sourceRef:
         kind: HelmRepository
         name: kiali
@@ -21,9 +21,11 @@ spec:
   # Default values
   # https://github.com/kiali/helm-charts/blob/master/kiali-operator/values.yaml
   values:
-    image:
-      repo: quay.io/kiali/kiali-operator
-      tag: 1.41.0@sha256:356f18f3a935b2f226093720b65383048249413ed99da72c87d5be58cc46661c
+    # Upstream: https://github.com/kiali/helm-charts/blob/master/kiali-operator/templates/deployment.yaml Line: 42
+    # image: "{{ .Values.image.repo }}{{ if .Values.image.digest }}@{{ .Values.image.digest }}{{ end }}:{{ .Values.image.tag }}"
+    #image:
+      #repo: quay.io/kiali/kiali-operator
+      #tag: 1.41.0@sha256:356f18f3a935b2f226093720b65383048249413ed99da72c87d5be58cc46661c
       #digest: sha256:356f18f3a935b2f226093720b65383048249413ed99da72c87d5be58cc46661c
     cr:
       create: true
