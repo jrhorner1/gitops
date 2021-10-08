@@ -24,3 +24,7 @@ spec:
       enabled: false
     jiva:
       enabled: true
+    openebs-ndm:
+      enabled: true
+    localpv-provisioner:
+      enabled: true
