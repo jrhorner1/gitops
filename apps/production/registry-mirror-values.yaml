@@ -14,7 +14,7 @@ spec:
         - name: regcred
     persistence:
       size: 10Gi
-      storageClass: 'openebs-jiva-default'
+      storageClass: 'openebs-jiva-csi-default'
     ingress:
       enabled: true
       path: /
