@@ -45,7 +45,7 @@ spec:
   interval: 10m0s
   dependsOn:
     - name:  istio-operator
-  path: ./infrastructure/istio-operator/istio-system
+  path: ./infrastructure/istio
   prune: true
   sourceRef:
     kind: GitRepository
