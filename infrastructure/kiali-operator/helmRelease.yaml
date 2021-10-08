@@ -9,6 +9,7 @@ spec:
   chart:
     spec:
       chart: kiali-operator
+      version: 1.41.0
       sourceRef:
         kind: HelmRepository
         name: kiali
@@ -18,7 +19,7 @@ spec:
     remediation:
       retries: 3
   # Default values
-  # https://github.com/jetstack/cert-manager/blob/master/deploy/charts/cert-manager/values.yaml
+  # https://github.com/kiali/helm-charts/blob/master/kiali-operator/values.yaml
   values:
     cr:
       create: true
