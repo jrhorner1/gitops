@@ -7,6 +7,6 @@ resources:
 - metallb.yaml
 - istio.yaml # DependsOn metallb
 - cert-manager 
-- nginx-ingress # DependsOn metallb
-- kiali-operator # DependsOn istio-system
+- ingress-nginx.yaml # DependsOn metallb
+- kiali-operator.yaml # DependsOn istio-system
 - kube-prometheus.yaml
