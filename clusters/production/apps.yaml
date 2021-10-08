@@ -6,7 +6,7 @@ metadata:
 spec:
   interval: 10m0s
   dependsOn:
-    - name: auxiliary-infrastructure
+    - name: infrastructure
   path: ./apps/production
   prune: true
   sourceRef:
