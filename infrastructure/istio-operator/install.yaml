@@ -14,5 +14,5 @@ spec:
     name: kube-prometheus
   images: 
     - name: gcr.io/istio-testing/operator
-      newname: docker.io/querycapistio/operator
-      newtag: 1.11.3 
+      newName: docker.io/querycapistio/operator
+      newTag: 1.11.3 
