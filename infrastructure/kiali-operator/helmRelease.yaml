@@ -6,8 +6,6 @@ metadata:
   namespace: kiali-operator
 spec:
   releaseName: kiali-operator
-  dependsOn:
-    - name: istio-system
   chart:
     spec:
       chart: kiali-operator
