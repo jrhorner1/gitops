@@ -8,7 +8,7 @@ spec:
   chart:
     spec:
       chart: openebs
-      version: "2.12.1"
+      version: "3.0.1"
       sourceRef:
         kind: HelmRepository
         name: openebs
@@ -20,11 +20,5 @@ spec:
   # Default values
   # https://github.com/openebs/charts/blob/master/charts/openebs/values.yaml
   values:
-    legacy:
-      enabled: false
     jiva:
-      enabled: true
-    openebs-ndm:
-      enabled: true
-    localpv-provisioner:
       enabled: true
