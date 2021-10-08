@@ -8,6 +8,7 @@ spec:
   chart:
     spec:
       chart: openebs
+      version: "2.12.1"
       sourceRef:
         kind: HelmRepository
         name: openebs
