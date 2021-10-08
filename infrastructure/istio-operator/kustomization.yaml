@@ -4,3 +4,4 @@ namespace: istio-operator
 resources:
   - crds.yaml
   - install.yaml
+  - istio-system
