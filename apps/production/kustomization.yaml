@@ -3,13 +3,13 @@ kind: Kustomization
 resources:
   - ../base/sources
   - ../base/podinfo
-  # - ../base/blocky
+  - ../base/blocky
   # - ../base/registry-mirror
   # - registry-mirror_secrets.yaml
   # - velero_secret.yaml
   # - ../base/velero
 patchesStrategicMerge:
   - podinfo-values.yaml
-  # - blocky-values.yaml
+  - blocky-values.yaml
   # - registry-mirror-values.yaml
   # - velero-values.yaml
