@@ -4,9 +4,9 @@ kind: Kustomization
 resources:
 - sources
 - openebs 
-- metallb
-- istio-operator 
-- cert-manager
+- metallb.yaml
+- istio.yaml # DependsOn metallb
+- cert-manager 
 - nginx-ingress # DependsOn metallb
 - kiali-operator # DependsOn istio-system
 - prometheus-operator
