@@ -10,8 +10,6 @@ spec:
     spec:
       version: "9.0.3"
   values:
-    image:
-      tag: v0.14
     env: {
       TZ: "America/New_York"
     }
