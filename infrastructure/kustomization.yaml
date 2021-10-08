@@ -9,4 +9,4 @@ resources:
 - cert-manager 
 - nginx-ingress # DependsOn metallb
 - kiali-operator # DependsOn istio-system
-- prometheus-operator
+- kube-prometheus.yaml

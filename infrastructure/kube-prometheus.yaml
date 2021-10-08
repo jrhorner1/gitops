@@ -35,3 +35,17 @@ spec:
     - apiVersion: apiextensions.k8s.io/v1
       kind: CustomResourceDefinition
       name: thanosrulers.monitoring.coreos.com
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+kind: Kustomization
+metadata:
+  name: kube-prometheus
+  namespace: flux-system
+spec:
+  interval: 15m
+  dependsOn:
+    - name: kube-prometheus-crds
+  prune: false
+  sourceRef:
+    kind: GitRepository
+    name: kube-prometheus
