@@ -13,7 +13,11 @@ spec:
     env: {
       TZ: "America/New_York"
     }
-    replicas: 3
+    controller:
+      enabled: true
+      type: deployment
+      strategy: RollingUpdate
+      replicas: 3
     probes:
       liveness:
         failureThreshold: 5
