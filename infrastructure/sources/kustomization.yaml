@@ -8,3 +8,4 @@ resources:
   - kube-prometheus.yaml
   - kiali.yaml
   - jetstack.yaml
+  - ingress-nginx.yaml
