@@ -3,3 +3,8 @@ kind: Kustomization
 namespace: flux-system
 resources:
   - openebs.yaml
+  - metallb.yaml
+  - istio.yaml
+  - kube-prometheus.yaml
+  - kiali.yaml
+  - jetstack.yaml
