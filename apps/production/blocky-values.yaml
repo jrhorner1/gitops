@@ -9,11 +9,52 @@ spec:
   chart:
     spec:
       version: "9.0.3"
-  # values:
-  #   env: {
-  #     TZ: "America/New_York"
-  #   }
-  #   replicas: 3
+  values:
+    env: {
+      TZ: "America/New_York"
+    }
+    replicas: 3
+    probes:
+      liveness:
+        failureThreshold: 5
+        periodSeconds: 10
+      readiness:
+        failureThreshold: 5
+        periodSeconds: 10
+      startup:
+        initialDelaySeconds: 5
+        failureThreshold: 30
+        periodSeconds: 10
+    service:
+      main:
+        ports:
+          http:
+            port: 4000
+      dns-tcp:
+        enabled: true
+        type: LoadBalancer
+        loadBalancerIP: "192.168.11.53"
+        annotations:
+          metallb.universe.tf/allow-shared-ip: blocky
+        ports:
+          dns-tcp:
+            enabled: true
+            port: 53
+            protocol: TCP
+            targetPort: 53
+      dns-udp:
+        enabled: true
+        type: LoadBalancer
+        loadBalancerIP: "192.168.11.53"
+        annotations:
+          metallb.universe.tf/allow-shared-ip: blocky
+        ports:
+          dns-udp:
+            enabled: true
+            port: 53
+            protocol: UDP
+            targetPort: 53
+        externalTrafficPolicy: Local
   #   config: |
   #     upstream:
   #       externalResolvers:
@@ -67,44 +108,3 @@ spec:
   #     bootstrapDns: tcp:1.1.1.1
   #     logLevel: info
   #     logFormat: text
-  #   probes:
-  #     liveness:
-  #       failureThreshold: 5
-  #       periodSeconds: 10
-  #     readiness:
-  #       failureThreshold: 5
-  #       periodSeconds: 10
-  #     startup:
-  #       initialDelaySeconds: 5
-  #       failureThreshold: 30
-  #       periodSeconds: 10
-  #   service:
-  #     port:
-  #       port: 4000
-  #     additionalServices:
-  #     - enabled: true
-  #       nameSuffix: tcp-dns
-  #       type: LoadBalancer
-  #       externalIPs:
-  #         - "192.168.11.53"
-  #       port:
-  #         port: 53
-  #         name: dns-tcp
-  #         protocol: TCP
-  #         targetPort: 53
-  #       externalTrafficPolicy: Local
-  #       annotations:
-  #         metallb.universe.tf/allow-shared-ip: blocky
-  #     - enabled: true
-  #       nameSuffix: udp-dns
-  #       type: LoadBalancer
-  #       externalIPs:
-  #         - "192.168.11.53"
-  #       port:
-  #         port: 53
-  #         name: dns-udp
-  #         protocol: UDP
-  #         targetPort: 53
-  #       externalTrafficPolicy: Local
-  #       annotations:
-  #         metallb.universe.tf/allow-shared-ip: blocky
