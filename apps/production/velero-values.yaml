@@ -7,11 +7,11 @@ spec:
   releaseName: velero
   chart:
     spec:
-      version: "<=1.0.0"
+      version: "2.23.12" 
   values:
     initContainers:
       - name: velero-plugin-for-aws
-        image: velero/velero-plugin-for-aws:v1.2.0
+        image: velero/velero-plugin-for-aws:v1.3.0
         imagePullPolicy: IfNotPresent
         volumeMounts:
           - mountPath: /target
