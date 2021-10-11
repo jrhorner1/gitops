@@ -29,3 +29,5 @@ spec:
     localpv-provisioner:
       enabled: true
       imageTag: "3.0.1"
+      release:
+        version: "3.0.1"
