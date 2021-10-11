@@ -1,5 +1,16 @@
 ## GitOps
 
+### Provision
+```bash
+pip3 install pipenv
+pipenv install
+pipenv shell
+gilt overlay
+cd provision/ansible
+ansible-playbook -i inventory/inventory.yaml playbooks/k3s-install.yaml
+ansible-playbook -i inventory/inventory.yaml playbooks/openebs-prereqs.yaml
+```
+
 ### Bootstrap
 ```bash
 KEY_FP=532458423DABB727A756D856F1F771FB906E1D53

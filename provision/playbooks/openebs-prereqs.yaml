@@ -1,0 +1,36 @@
+---
+- hosts:
+    - master
+    - worker
+  become: true
+  gather_facts: true
+  any_errors_fatal: true
+  pre_tasks:
+    - name: Pausing for 5 seconds...
+      pause:
+        seconds: 5
+  tasks:
+    # Reference https://github.com/openebs/jiva-operator/blob/develop/docs/quickstart.md#prerequisites
+    - name: install open-iscsi package
+      ansible.builtin.apt:
+        name: open-iscsi
+        state: present
+
+    - name: enable iscsid service
+      ansible.builtin.systemd:
+        name: iscsid
+        enabled: yes
+        state: started
+
+    - name: load iscsi_tcp module
+      community.general.modprobe:
+        name: iscsi_tcp
+        state: present
+
+    - name: load iscsi_tcp module on boot
+      ansible.builtin.lineinfile:
+        path: /etc/modules-load.d/iscsi-tcp.conf
+        create: yes
+        line: iscsi_tcp
+        search_string: 'iscsi_tcp'
+        state: present
