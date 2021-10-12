@@ -23,7 +23,7 @@ spec:
       annotations: 
         kubernetes.io/ingress.class: nginx
         # cert-manager.io/cluster-issuer: route53-issuer
-        # backup.velero.io/backup-volumes: data
+        backup.velero.io/backup-volumes: data
       # tls: 
       #   - secretName: registry-mirror-tls
       #     hosts:
