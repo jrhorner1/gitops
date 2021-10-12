@@ -31,3 +31,10 @@ spec:
         }
     credentials:
       existingSecret: velero-aws-credentials
+    schedules:
+      daily:
+        disabled: false
+        schedule: "0 4 * * *"
+        useOwnerReferencesInBackup: true
+        template:
+          ttl: "48h"
