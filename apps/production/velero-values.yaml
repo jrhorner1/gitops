@@ -35,7 +35,7 @@ spec:
       daily:
         disabled: false
         schedule: "0 4 * * *"
-        storageLocation: velero-backups
         useOwnerReferencesInBackup: true
         template:
           ttl: "48h"
+          storageLocation: velero-backups
