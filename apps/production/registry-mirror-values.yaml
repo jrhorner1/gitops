@@ -11,6 +11,8 @@ spec:
   values:
     podAnnotations:
       backup.velero.io/backup-volumes: data
+    podLabels:
+      backupSchedule: daily
     image:
       imagePullSecrets:
         - name: regcred

@@ -39,3 +39,8 @@ spec:
         template:
           ttl: "48h"
           storageLocation: velero-backups
+          labelSelector:
+            matchLabels:
+              backupSchedule: daily
+          excludedNamespaces: 
+          - velero
