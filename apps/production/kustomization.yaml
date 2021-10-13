@@ -7,7 +7,7 @@ resources:
   - ../base/registry-mirror
   - registry-mirror_secrets.yaml
   - ../base/velero
-  - velero_secret.yaml
+  - velero_secrets.yaml
 patchesStrategicMerge:
   - podinfo-values.yaml
   - blocky-values.yaml
