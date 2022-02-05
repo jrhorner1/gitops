@@ -8,8 +8,10 @@ resources:
   - registry-mirror_secrets.yaml
   - ../base/velero
   - velero_secrets.yaml
+  - ../base/loki-stack
 patchesStrategicMerge:
   - podinfo-values.yaml
   - blocky-values.yaml
   - registry-mirror-values.yaml
   - velero-values.yaml
+  - loki-stack-values.yaml
