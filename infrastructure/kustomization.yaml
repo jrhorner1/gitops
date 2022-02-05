@@ -10,4 +10,4 @@ resources:
 - ingress-nginx.yaml # DependsOn metallb
 # - kiali-operator.yaml # DependsOn istio-system
 - kiali-server.yaml # DependsOn istio-system
-- kube-prometheus.yaml
+# - kube-prometheus.yaml
