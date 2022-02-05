@@ -7,3 +7,4 @@ resources:
   - twuni.yaml
   - vmware-tanzu.yaml
   - k8s-at-home.yaml
+  - grafana.yaml
