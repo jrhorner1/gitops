@@ -26,11 +26,11 @@ spec:
         - registry-mirror.jrhorner.com
       annotations: 
         kubernetes.io/ingress.class: nginx
-        # cert-manager.io/cluster-issuer: route53-issuer
-      # tls: 
-      #   - secretName: registry-mirror-tls
-      #     hosts:
-      #       - registry-mirror.jrhorner.com
+        cert-manager.io/cluster-issuer: route53-issuer
+      tls: 
+        - secretName: registry-mirror-tls
+          hosts:
+            - registry-mirror.jrhorner.com
     configData:
       http:
-        host: http://registry-mirror.jrhorner.com
+        host: https://registry-mirror.jrhorner.com
