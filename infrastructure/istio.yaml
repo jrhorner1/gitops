@@ -34,7 +34,7 @@ spec:
   images: 
     - name: gcr.io/istio-testing/operator
       newName: docker.io/querycapistio/operator
-      newTag: 1.11.8 
+      newTag: 1.13.2 
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
 kind: Kustomization
