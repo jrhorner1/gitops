@@ -1,0 +1,28 @@
+- hosts:
+    - master
+    - worker
+  become: true
+  gather_facts: false
+  any_errors_fatal: true
+  serial: 1
+  tasks:
+    # Reference: https://rancher.com/docs/k3s/latest/en/installation/private-registry/ 
+    - name: deploy registries.yaml to each node
+      ansible.builtin.template:
+        src: ../templates/registries.yaml.j2
+        dest: /etc/rancher/k3s/registries.yaml
+        owner: root
+        group: root
+        mode: 0644
+      notify: restart k3s service
+  handlers:
+    - name: restart k3s service
+      block: 
+        - ansible.builtin.systemd:
+            name: k3s
+            state: restarted
+
+        - name: wait for service to become available
+          pause: 
+            seconds: 30
+
