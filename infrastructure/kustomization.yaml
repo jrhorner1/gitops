@@ -5,9 +5,9 @@ resources:
 - sources
 - openebs 
 - metallb.yaml
-# - istio.yaml # DependsOn metallb
+- istio.yaml # DependsOn metallb
 - cert-manager 
 - ingress-nginx.yaml # DependsOn metallb
-# - kiali-operator.yaml # DependsOn istio-system
-# - kiali-server.yaml # DependsOn istio-system
-# - kube-prometheus.yaml
+- kiali-operator.yaml # DependsOn istio-system
+- kiali-server.yaml # DependsOn istio-system
+- kube-prometheus.yaml
