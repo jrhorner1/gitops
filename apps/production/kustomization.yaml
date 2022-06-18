@@ -8,10 +8,18 @@ resources:
   - registry-mirror_secrets.yaml
   - ../base/velero
   - velero_secrets.yaml
-  - ../base/loki-stack
+  # - ../base/loki-stack
+  - ../base/grafana.yaml
+  # - influxdb_secrets.yaml
+  # - ../base/influxdb.yaml
+  # - speedtestd_secrets.yaml
+  # - ../base/speedtestd.yaml
 patchesStrategicMerge:
   - podinfo-values.yaml
   - blocky-values.yaml
   - registry-mirror-values.yaml
   - velero-values.yaml
-  - loki-stack-values.yaml
+  # - loki-stack-values.yaml
+  - grafana-values.yaml
+  # - influxdb-values.yaml
+  # - speedtestd-values.yaml

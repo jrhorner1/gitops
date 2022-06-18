@@ -1,0 +1,7 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: HelmRepository
+metadata:
+  name: speedtestd
+spec:
+  interval: 30m
+  url: https://jrhorner1.github.io/speedtestd/

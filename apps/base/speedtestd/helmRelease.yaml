@@ -1,0 +1,21 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: speedtestd
+  namespace: observability
+spec:
+  releaseName: speedtestd
+  chart:
+    spec:
+      chart: speedtestd
+      sourceRef:
+        kind: HelmChart
+        name: speedtestd
+        namespace: flux-system
+  interval: 5m
+  install:
+    remediation:
+      retries: 3
+  # Default values
+  

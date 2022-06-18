@@ -8,3 +8,5 @@ resources:
   - vmware-tanzu.yaml
   - k8s-at-home.yaml
   - grafana.yaml
+  - influxdb.yaml
+  - speedtestd.yaml
