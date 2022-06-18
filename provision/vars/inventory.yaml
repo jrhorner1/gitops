@@ -11,6 +11,7 @@ kubernetes:
           ansible_host: 192.168.11.13
       vars:
         ansible_user: ubuntu
+        liveliness_port: 6443
     worker:
       hosts:
         k-node1:
@@ -25,3 +26,5 @@ kubernetes:
           ansible_host: 192.168.11.18
       vars:
         ansible_user: ubuntu
+        liveliness_port: 9100
+

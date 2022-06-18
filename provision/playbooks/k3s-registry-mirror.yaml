@@ -1,3 +1,4 @@
+---
 - hosts:
     - master
     - worker
@@ -25,4 +26,4 @@
         - name: wait for service to become available
           pause: 
             seconds: 30
-
+...
