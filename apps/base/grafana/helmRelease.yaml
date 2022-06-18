@@ -10,7 +10,7 @@ spec:
     spec:
       chart: grafana
       sourceRef:
-        kind: HelmChart
+        kind: HelmRepository
         name: grafana
         namespace: flux-system
   interval: 5m
