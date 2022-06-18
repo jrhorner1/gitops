@@ -1,13 +1,13 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: loki
-  namespace: logging
+  name: promtail
+  namespace: observability
 spec:
-  releaseName: loki
+  releaseName: promtail
   chart:
     spec:
-      chart: loki-stack
+      chart: promtail
       sourceRef:
         kind: HelmRepository
         name: grafana
@@ -17,7 +17,5 @@ spec:
     remediation:
       retries: 3
   # Default values
-  # https://github.com/grafana/helm-charts/blob/main/charts/loki-stack/values.yaml
-  #
-  # See also: https://github.com/grafana/helm-charts/blob/main/charts/loki-stack/requirements.yaml
+  # https://github.com/grafana/helm-charts/blob/main/charts/promtail/values.yaml
   

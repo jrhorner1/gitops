@@ -8,7 +8,8 @@ resources:
   - registry-mirror_secrets.yaml
   - ../base/velero
   - velero_secrets.yaml
-  # - ../base/loki-stack
+  - ../base/promtail
+  - ../base/loki
   - ../base/grafana
   # - influxdb_secrets.yaml
   # - ../base/influxdb.yaml
@@ -19,7 +20,8 @@ patchesStrategicMerge:
   - blocky-values.yaml
   - registry-mirror-values.yaml
   - velero-values.yaml
-  # - loki-stack-values.yaml
+  - promtail-values.yaml
+  - loki-values.yaml
   - grafana-values.yaml
   # - influxdb-values.yaml
   # - speedtestd-values.yaml
