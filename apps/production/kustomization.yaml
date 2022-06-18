@@ -9,7 +9,7 @@ resources:
   - ../base/velero
   - velero_secrets.yaml
   # - ../base/loki-stack
-  - ../base/grafana.yaml
+  - ../base/grafana
   # - influxdb_secrets.yaml
   # - ../base/influxdb.yaml
   # - speedtestd_secrets.yaml
