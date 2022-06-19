@@ -12,7 +12,7 @@ spec:
       enabled: true
       annotations:
         kubernetes.io/ingress.class: "nginx"
-        kubernetes.io/tls-acme: "true"
+        cert-manager.io/cluster-issuer: route53-issuer
       hosts:
         - grafana.jrhorner.com
       tls:
