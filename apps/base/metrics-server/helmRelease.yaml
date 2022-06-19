@@ -1,20 +1,20 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: podinfo
-  namespace: podinfo
+  name: metrics-server
+  namespace: observability
 spec:
-  releaseName: podinfo
+  releaseName: metrics-server
   chart:
     spec:
-      chart: podinfo
+      chart: metrics-server
       sourceRef:
         kind: HelmRepository
-        name: podinfo
+        name: metrics-server
         namespace: flux-system
   interval: 5m
   install:
     remediation:
       retries: 3
   # Default values
-  # https://github.com/stefanprodan/podinfo/blob/master/charts/podinfo/values.yaml
+  # https://github.com/kubernetes-sigs/metrics-server/blob/master/charts/metrics-server/values.yaml

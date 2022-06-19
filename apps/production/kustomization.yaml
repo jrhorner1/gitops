@@ -12,6 +12,7 @@ resources:
   - ../base/loki
   - ../base/grafana
   - ../base/kube-prometheus-stack
+  - ../base/metrics-server
   # - influxdb_secrets.yaml
   # - ../base/influxdb.yaml
   # - speedtestd_secrets.yaml
@@ -25,5 +26,6 @@ patchesStrategicMerge:
   - loki-values.yaml
   - grafana-values.yaml
   - kube-prometheus-stack.yaml
+  - metrics-server.yaml
   # - influxdb-values.yaml
   # - speedtestd-values.yaml
