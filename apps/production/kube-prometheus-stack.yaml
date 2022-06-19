@@ -1,0 +1,13 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: kube-prometheus-stack
+  namespace: observability
+spec:
+  chart:
+    spec:
+      version: "36.0.2"
+  values:
+    grafana:
+      enabled: false
+    

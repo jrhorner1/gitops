@@ -7,7 +7,7 @@ spec:
   chart:
     spec:
       version: "6.30.2"
-  values:      
+  values:
     ingress:
       enabled: true
       ingressClassName: nginx

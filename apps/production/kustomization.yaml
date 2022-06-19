@@ -11,6 +11,7 @@ resources:
   - ../base/promtail
   - ../base/loki
   - ../base/grafana
+  - ../bash/kube-prometheus-stack
   # - influxdb_secrets.yaml
   # - ../base/influxdb.yaml
   # - speedtestd_secrets.yaml
@@ -23,5 +24,6 @@ patchesStrategicMerge:
   - promtail-values.yaml
   - loki-values.yaml
   - grafana-values.yaml
+  - kube-prometheus-stack.yaml
   # - influxdb-values.yaml
   # - speedtestd-values.yaml

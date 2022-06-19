@@ -10,3 +10,4 @@ resources:
   - grafana.yaml
   - influxdb.yaml
   - speedtestd.yaml
+  - prometheus-community.yaml
