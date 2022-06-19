@@ -11,7 +11,7 @@ resources:
   - ../base/promtail
   - ../base/loki
   - ../base/grafana
-  - ../bash/kube-prometheus-stack
+  - ../base/kube-prometheus-stack
   # - influxdb_secrets.yaml
   # - ../base/influxdb.yaml
   # - speedtestd_secrets.yaml
