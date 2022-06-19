@@ -10,4 +10,25 @@ spec:
   values:
     grafana:
       enabled: false
+    kubeControllerManager:
+      enabled: true
+      endpoints:
+        - 192.168.11.11
+        - 192.168.11.12
+        - 192.168.11.13
+    kubeEtcd:
+      endpoints:
+        - 192.168.11.11
+        - 192.168.11.12
+        - 192.168.11.13
+    kubeScheduler:
+      endpoints:
+        - 192.168.11.11
+        - 192.168.11.12
+        - 192.168.11.13
+    kubeProxy:
+      endpoints:
+        - 192.168.11.11
+        - 192.168.11.12
+        - 192.168.11.13
     
