@@ -8,3 +8,6 @@ spec:
     spec:
       version: "5.1.0"
   values:
+    config:
+      clients:
+        - url: http://loki:3100/loki/api/v1/push
