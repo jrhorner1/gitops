@@ -3,7 +3,6 @@ kind: Kustomization
 namespace: flux-system
 resources:
   - bitnami.yaml
-  - podinfo.yaml
   - twuni.yaml
   - vmware-tanzu.yaml
   - k8s-at-home.yaml
@@ -11,3 +10,4 @@ resources:
   - influxdb.yaml
   - speedtestd.yaml
   - prometheus-community.yaml
+  - metrics-server.yaml
