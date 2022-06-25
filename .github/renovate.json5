@@ -7,36 +7,23 @@
   "rebaseWhen": "conflicted",
   "helm-values": {
     "fileMatch": [
-      "clusters/.+/hr\\.yaml$"
+      "(apps|infrastructure)/.+/HelmRelease\\.yaml$"
     ]
   },
   "kubernetes": {
     "fileMatch": [
-      "clusters/.+\\.yaml$"
-    ],
-    "ignorePaths": [
-      "clusters/base/"
-    ],
+      "(apps|infrastructure)/.+\\.yaml$"
+    ]
   },
   "regexManagers": [
     // regexManager to read and process HelmRelease files
     {
       "fileMatch": [
-        "clusters/.+\\.yaml$"
+        "(apps|infrastructure)/.+\\.yaml$"
       ],
       "matchStrings": [
         // helm releases
         "registryUrl=(?<registryUrl>.*?)\n *chart: (?<depName>.*?)\n *version: (?<currentValue>.*)\n"
-      ],
-      "datasourceTemplate": "helm"
-    },
-    // regexManager to read and process cert-manager CRD's
-    {
-      "fileMatch": [
-        "clusters/core/base/crds/cert-manager/.+\\.yaml$"
-      ],
-      "matchStrings": [
-        "registryUrl=(?<registryUrl>.*?) chart=(?<depName>.*?)\n.*\\/(?<currentValue>.*?)\\/"
       ],
       "datasourceTemplate": "helm"
     },
