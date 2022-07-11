@@ -1,3 +1,4 @@
+---
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
@@ -24,10 +25,10 @@ spec:
       path: /
       hosts:
         - registry-mirror.jrhorner.com
-      annotations: 
+      annotations:
         kubernetes.io/ingress.class: nginx
         cert-manager.io/cluster-issuer: route53-issuer
-      tls: 
+      tls:
         - secretName: registry-mirror-tls
           hosts:
             - registry-mirror.jrhorner.com

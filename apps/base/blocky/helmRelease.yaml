@@ -17,7 +17,6 @@ spec:
   install:
     remediation:
       retries: 3
-  # Default values
-  # https://github.com/k8s-at-home/library-charts/blob/main/charts/stable/common/values.yaml
-  # https://github.com/k8s-at-home/charts/blob/master/charts/stable/blocky/values.yaml
-  
+# Default values
+# https://github.com/k8s-at-home/library-charts/blob/main/charts/stable/common/values.yaml
+# https://github.com/k8s-at-home/charts/blob/master/charts/stable/blocky/values.yaml

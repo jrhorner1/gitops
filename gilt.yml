@@ -5,7 +5,8 @@
     - src: "provision/ansible"
       dst: provision/ansible/
       post_commands:
-        - ansible-galaxy install -r requirements.yml --force -c
+        - ansible-galaxy collection install -r requirements.yml --force
+        - ansible-galaxy role install -r requirements.yml --force
         - cp ../vars/inventory.yaml inventory/inventory.yaml
         - cp ../vars/kube-vip.yaml inventory/group_vars/kubernetes/kube-vip.yaml
         - cp ../vars/k3s-master.yaml inventory/group_vars/master/k3s.yml

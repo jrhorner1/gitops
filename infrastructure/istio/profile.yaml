@@ -1,3 +1,4 @@
+---
 apiVersion: install.istio.io/v1alpha1
 kind: IstioOperator
 metadata:
@@ -12,27 +13,27 @@ spec:
         affinity: &affinity
           nodeAffinity:
             preferredDuringSchedulingIgnoredDuringExecution:
-            - preference:
-                matchExpressions:
-                - key: beta.kubernetes.io/arch
-                  operator: In
-                  values:
-                  - arm64
-              weight: 2
+              - preference:
+                  matchExpressions:
+                    - key: beta.kubernetes.io/arch
+                      operator: In
+                      values:
+                        - arm64
+                weight: 2
             requiredDuringSchedulingIgnoredDuringExecution:
               nodeSelectorTerms:
-              - matchExpressions:
-                - key: beta.kubernetes.io/arch
-                  operator: In
-                  values:
-                  - arm64
+                - matchExpressions:
+                    - key: beta.kubernetes.io/arch
+                      operator: In
+                      values:
+                        - arm64
     egressGateways:
-    - name: istio-egressgateway
-      k8s:
-        affinity: *affinity
-      enabled: true
+      - name: istio-egressgateway
+        k8s:
+          affinity: *affinity
+        enabled: true
     ingressGateways:
-    - name: istio-ingressgateway
-      k8s:
-        affinity: *affinity
-      enabled: true
+      - name: istio-ingressgateway
+        k8s:
+          affinity: *affinity
+        enabled: true

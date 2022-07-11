@@ -17,6 +17,5 @@ spec:
   install:
     remediation:
       retries: 3
-  # Default values
-  # https://github.com/influxdata/helm-charts/blob/master/charts/influxdb2/values.yaml
-  
+# Default values
+# https://github.com/influxdata/helm-charts/blob/master/charts/influxdb2/values.yaml

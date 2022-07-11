@@ -1,3 +1,4 @@
+---
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
@@ -16,8 +17,8 @@ spec:
   install:
     remediation:
       retries: 3
-  # Default values
-  # https://github.com/twuni/docker-registry.helm/blob/main/values.yaml
+# Default values
+# https://github.com/twuni/docker-registry.helm/blob/main/values.yaml
   values:
     persistence:
       accessMode: 'ReadWriteOnce'

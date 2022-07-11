@@ -6,9 +6,9 @@ pip3 install pipenv
 pipenv install
 pipenv shell
 gilt overlay
-cd provision/ansible
-ansible-playbook -i inventory/inventory.yaml playbooks/k3s-install.yaml
-ansible-playbook -i inventory/inventory.yaml playbooks/openebs-prereqs.yaml
+ansible-playbook provision/ansible/playbooks/cluster-prepare.yml
+ansible-playbook provision/ansible/playbooks/openebs-prereqs.yaml
+ansible-playbook provision/ansible/cluster-installation.yml
 ```
 
 ### Bootstrap
@@ -17,7 +17,7 @@ KEY_FP=532458423DABB727A756D856F1F771FB906E1D53
 
 kubectl create namespace flux-system
 
-gpg --export-secret-keys --armor "${KEY_FP}" | 
+gpg --export-secret-keys --armor "${KEY_FP}" |
 kubectl create secret generic sops-gpg \
     --namespace=flux-system \
     --from-file=sops.asc=/dev/stdin

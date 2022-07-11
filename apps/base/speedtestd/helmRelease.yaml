@@ -17,5 +17,4 @@ spec:
   install:
     remediation:
       retries: 3
-  # Default values
-  
+# Default values

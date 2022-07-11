@@ -11,6 +11,6 @@ spec:
     privateKeySecretRef:
       name: lets-encrypt-private-key
     solvers:
-    - dns01:
-        route53:
-          region: us-east-1
+      - dns01:
+          route53:
+            region: us-east-1

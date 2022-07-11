@@ -1,3 +1,4 @@
+---
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
@@ -7,13 +8,13 @@ spec:
   releaseName: velero
   chart:
     spec:
-      version: "2.23.12" 
+      version: "2.23.12"
   values:
     initContainers:
       - name: velero-plugin-for-aws
         image: velero/velero-plugin-for-aws:v1.3.0
-      # - name: velero-plugin-for-microsoft-azure
-      #   image: velero/velero-plugin-for-microsoft-azure:v1.3.0
+    # - name: velero-plugin-for-microsoft-azure
+    #   image: velero/velero-plugin-for-microsoft-azure:v1.3.0
         imagePullPolicy: IfNotPresent
         volumeMounts:
           - mountPath: /target
@@ -26,15 +27,15 @@ spec:
         config: {
           region: us-east-1
         }
-      # provider: azure
-      # backupStorageLocation:
-      #   name: velero-backups
-      #   bucket: velero
-      #   config: {
-      #     resourceGroup: velero_backups,
-      #     storageAccount: velerod1ea957d1ccd,
-      #     storageAccountKeyEnvVar: AZURE_STORAGE_ACCOUNT_ACCESS_KEY
-      #   }
+    # provider: azure
+    # backupStorageLocation:
+    #   name: velero-backups
+    #   bucket: velero
+    #   config: {
+    #     resourceGroup: velero_backups,
+    #     storageAccount: velerod1ea957d1ccd,
+    #     storageAccountKeyEnvVar: AZURE_STORAGE_ACCOUNT_ACCESS_KEY
+    #   }
     snapshotsEnabled: false
     credentials:
       existingSecret: velero-aws-credentials
@@ -50,5 +51,5 @@ spec:
           labelSelector:
             matchLabels:
               backupSchedule: daily
-          excludedNamespaces: 
-          - velero
+          excludedNamespaces:
+            - velero
