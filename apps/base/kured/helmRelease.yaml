@@ -1,0 +1,21 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: kured
+  namespace: kube-system
+spec:
+  releaseName: kured
+  chart:
+    spec:
+      chart: kured
+      sourceRef:
+        kind: HelmRepository
+        name: kured
+        namespace: flux-system
+  interval: 5m
+  install:
+    remediation:
+      retries: 3
+# Default values
+# https://github.com/weaveworks/kured/blob/main/charts/kured/values.yaml

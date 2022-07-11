@@ -12,3 +12,4 @@ resources:
   - speedtestd.yaml
   - prometheus-community.yaml
   - metrics-server.yaml
+  - kured.yaml
