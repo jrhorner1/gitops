@@ -8,7 +8,7 @@ spec:
   interval: 10m0s
   dependsOn:
     - name: metallb
-  path: ./infrastructure/ingress-nginx
+  path: ./clusters/base/infrastructure/ingress-nginx
   prune: true
   sourceRef:
     kind: GitRepository

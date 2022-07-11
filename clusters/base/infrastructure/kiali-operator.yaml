@@ -8,7 +8,7 @@ spec:
   interval: 10m0s
   dependsOn:
     - name: istio-system
-  path: ./infrastructure/kiali-operator
+  path: ./clusters/base/infrastructure/kiali-operator
   prune: true
   sourceRef:
     kind: GitRepository

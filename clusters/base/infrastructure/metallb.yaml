@@ -20,7 +20,7 @@ spec:
   interval: 15m
   dependsOn:
     - name: metallb
-  path: ./infrastructure/metallb
+  path: ./clusters/base/infrastructure/metallb
   prune: false
   sourceRef:
     kind: GitRepository
