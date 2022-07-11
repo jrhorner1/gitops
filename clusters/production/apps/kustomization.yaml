@@ -2,22 +2,22 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - ../base/sources
-  - ../base/blocky
-  - ../base/registry-mirror
+  - ../../base/apps/sources
+  - ../../base/apps/blocky
+  - ../../base/apps/registry-mirror
   - registry-mirror_secrets.yaml
-  - ../base/velero
+  - ../../base/apps/velero
   - velero_secrets.yaml
-  - ../base/promtail
-  - ../base/loki
-  - ../base/grafana
-  - ../base/kube-prometheus-stack
-  - ../base/metrics-server
-  - ../base/kured
+  - ../../base/apps/promtail
+  - ../../base/apps/loki
+  - ../../base/apps/grafana
+  - ../../base/apps/kube-prometheus-stack
+  - ../../base/apps/metrics-server
+  - ../../base/apps/kured
   # - influxdb_secrets.yaml
-  # - ../base/influxdb.yaml
+  # - ../../base/apps/influxdb.yaml
   # - speedtestd_secrets.yaml
-  # - ../base/speedtestd.yaml
+  # - ../../base/apps/speedtestd.yaml
 patchesStrategicMerge:
   - blocky-values.yaml
   - registry-mirror-values.yaml
