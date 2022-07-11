@@ -12,9 +12,9 @@ spec:
   values:
     initContainers:
       - name: velero-plugin-for-aws
-        image: velero/velero-plugin-for-aws:v1.3.0
-    # - name: velero-plugin-for-microsoft-azure
-    #   image: velero/velero-plugin-for-microsoft-azure:v1.3.0
+        image: velero/velero-plugin-for-aws:v1.5.0
+      # - name: velero-plugin-for-microsoft-azure
+      #   image: velero/velero-plugin-for-microsoft-azure:v1.3.0
         imagePullPolicy: IfNotPresent
         volumeMounts:
           - mountPath: /target
