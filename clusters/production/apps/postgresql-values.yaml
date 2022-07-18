@@ -1,0 +1,25 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: postgresql
+  namespace: postgresql
+spec:
+  releaseName: postgresql
+  chart:
+    spec:
+      version: "11.6.16"
+  values:
+    global:
+      postgresql:
+        auth:
+          postgresPassword: "${AUTHENTIK_POSTGRES_ROOT_PASSWORD}"
+          username: "authentik"
+          password: "${AUTHENTIK_POSTGRES_PASSWORD}"
+          database: "authentik"
+
+    primary:
+      podSecurityContext:
+        runAsNonRoot: true
+      persistence:
+        enabled: true

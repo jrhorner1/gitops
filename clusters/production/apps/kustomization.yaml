@@ -14,6 +14,8 @@ resources:
   - ../../base/apps/kube-prometheus-stack
   - ../../base/apps/metrics-server
   - ../../base/apps/kured
+  - ../../base/apps/postgresql
+  - ../../base/apps/authentik
   # - influxdb_secrets.yaml
   # - ../../base/apps/influxdb.yaml
   # - speedtestd_secrets.yaml
@@ -28,5 +30,7 @@ patchesStrategicMerge:
   - kube-prometheus-stack-values.yaml
   - metrics-server-values.yaml
   - kured-values.yaml
+  - postgresql-values.yaml
+  - authentik-values.yaml
   # - influxdb-values.yaml
   # - speedtestd-values.yaml

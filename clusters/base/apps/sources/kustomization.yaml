@@ -13,3 +13,4 @@ resources:
   - prometheus-community.yaml
   - metrics-server.yaml
   - kured.yaml
+  - authentik.yaml

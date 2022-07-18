@@ -7,6 +7,7 @@ metadata:
 spec:
   interval: 10m0s
   dependsOn:
+    - name: secrets
     - name: infrastructure
   path: ./clusters/production/apps
   prune: true
@@ -18,3 +19,10 @@ spec:
     provider: sops
     secretRef:
       name: sops-gpg
+  postBuild:
+    substitute: {}
+    substituteFrom:
+      - kind: ConfigMap
+        name: cluster-settings
+      - kind: Secret
+        name: cluster-secrets
