@@ -29,7 +29,7 @@ spec:
     authentik:
       secret_key: "${AUTHENTIK_SECRET_KEY}"
       postgresql:
-        host: "postgresql"
+        host: "postgresql.postgresql.svc.cluster.local"
         name: "authentik"
         user: "authentik"
         password: "${AUTHENTIK_POSTGRES_PASSWORD}"
