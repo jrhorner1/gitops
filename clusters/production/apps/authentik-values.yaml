@@ -29,3 +29,18 @@ spec:
         name: "authentik"
         user: "authentik"
         password: "${AUTHENTIK_POSTGRES_PASSWORD}"
+
+    ingress:
+      enabled: true
+      ingressClassName: "nginx"
+      annotations:
+        cert-manager.io/cluster-issuer: route53-issuer
+      hosts:
+        - host: authentik.jrhorner.com
+          paths:
+            - path: "/"
+              pathType: Prefix
+      tls:
+        - hosts:
+            - authentik.jrhorner.com
+          secretName: "authentik-tls"
