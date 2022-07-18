@@ -23,3 +23,7 @@ spec:
         runAsNonRoot: true
       persistence:
         enabled: true
+
+    nodeSelector:
+      kubernetes.io/os: linux
+      kubernetes.io/arch: amd64

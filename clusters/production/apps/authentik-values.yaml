@@ -44,3 +44,7 @@ spec:
         - hosts:
             - authentik.jrhorner.com
           secretName: "authentik-tls"
+
+    nodeSelector:
+      kubernetes.io/os: linux
+      kubernetes.io/arch: amd64
