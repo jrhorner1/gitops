@@ -50,23 +50,23 @@ Ubuntu 21.04 went end of life (EOL) on [January 20, 2022][ref1]. Ubuntu 21.10 al
 
 #### Solution
 
-Run the [EOL upgrade script](../scripts/eolupgrade.sh) to update sources.list, install any available updates, and [bypass the unsupported upgrade logic][ref3].
+Run the [EOL upgrade script](../scripts/eolupgrade.sh) to update sources.list, install any available updates, [bypass the unsupported upgrade logic][ref3] and start the upgrade to 21.10.
 
 ```bash
 curl -OL https://raw.githubusercontent.com/jrhorner1/gitops/main/scripts/eolupgrade.sh
 chmod +x eolupgrade.sh
-./eolupgrade.sh
-tmux new -s release-upgrade
-sudo do-release-upgrade
+sudo ./eolupgrade.sh
+sudo reboot now
 ```
 
-This will upgrade to the next release in the upgrade path, 21.10, code name "impish". When the upgrade script has completed, press 'x' to exit the script. Checking the release should reflect the new code name.
+When the host comes back up, create a new tmux session and begin the upgrade to 22.04:
 
 ```bash
+tmux new -s release-upgrade
+sudo do-release-upgrade
 cat /etc/*release
+sudo reboot now
 ```
-
-Kick off the release upgrade again and when the upgrade finishes, reboot and verify the release version/code name.
 
 ### Prevention
 
