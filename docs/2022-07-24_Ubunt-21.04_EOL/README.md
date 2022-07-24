@@ -50,7 +50,7 @@ Ubuntu 21.04 went end of life (EOL) on [January 20, 2022][ref1]. Ubuntu 21.10 al
 
 #### Solution
 
-Run the [EOL upgrade script](../scripts/eolupgrade.sh) to update sources.list, install any available updates, and bypass the unsupported upgrade logic.
+Run the [EOL upgrade script](../scripts/eolupgrade.sh) to update sources.list, install any available updates, and [bypass the unsupported upgrade logic][ref3].
 
 ```bash
 curl -OL https://raw.githubusercontent.com/jrhorner1/gitops/main/scripts/eolupgrade.sh
@@ -78,7 +78,7 @@ When the upgrade finishes, reboot and verify the release version/code name.
 
 ### Prevention
 
-Ubuntu 22.04 is a long term support (LTS) release and will recieve support until [April 2027][ref3]. The issue should not present itself as long as an upgrade to a non-LTS release is NOT performed.
+Ubuntu 22.04 is a long term support (LTS) release and will recieve support until [April 2027][ref4]. The issue should not present itself as long as an upgrade to a non-LTS release is NOT performed.
 
 ### Resources
 
@@ -87,4 +87,5 @@ Ubuntu 22.04 is a long term support (LTS) release and will recieve support until
 
 [ref1]: https://lists.ubuntu.com/archives/ubuntu-announce/2022-January/000276.html
 [ref2]: https://lists.ubuntu.com/archives/ubuntu-announce/2022-July/000281.html
-[ref3]: https://discourse.ubuntu.com/t/jammy-jellyfish-release-notes/24668
+[ref3]: https://www.reddit.com/r/Ubuntu/comments/w3iair/comment/igwbypp/?context=1
+[ref4]: https://discourse.ubuntu.com/t/jammy-jellyfish-release-notes/24668
