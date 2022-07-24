@@ -66,15 +66,7 @@ This will upgrade to the next release in the upgrade path, 21.10, code name "imp
 cat /etc/*release
 ```
 
-
-Reboot and install the `ubuntu-server` (or `ubuntu-server-raspi`) package as `ubuntu-minimal` is no longer available in 22.04 and will present an error when attempting the release upgrade. Kick off the release upgrade once the meta-package is installed.
-
-```bash
-sudo apt install ubuntu-server-raspi
-sudo do-release-upgrade
-```
-
-When the upgrade finishes, reboot and verify the release version/code name.
+Kick off the release upgrade again and when the upgrade finishes, reboot and verify the release version/code name.
 
 ### Prevention
 
