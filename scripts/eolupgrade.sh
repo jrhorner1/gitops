@@ -13,8 +13,13 @@ sed -i 's|http://ports.ubuntu.com/ubuntu-ports/|http://old-releases.ubuntu.com/u
 apt-get update
 apt-get upgrade -y
 apt-get dist-upgrade -y
+# Autoremove any packages no longer required
+apt autoremove -y
 
 # Bypass unsupported upgrade check in `do-release-upgrade` script
 sed -i 's/continue/pass/g' /usr/lib/python3/dist-packages/UpdateManager/Core/MetaRelease.py # line 315
 
-printf "%s\n\t%s\n\t%s" "To perform the upgrade, create a tmux session and run the interactive upgrade script:" "tmux new -s release-upgrade" "sudo do-release-upgrade"
+printf "\n%s\n\t%s\n\t%s\n\n" \
+"To perform the upgrade, create a tmux session and run the interactive upgrade script:" \
+    "tmux new -s release-upgrade" \
+    "sudo do-release-upgrade"
