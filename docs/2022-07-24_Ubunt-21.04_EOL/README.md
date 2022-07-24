@@ -83,6 +83,7 @@ Ubuntu 22.04 is a long term support (LTS) release and will recieve support until
 ### Resources
 
 * [Ubuntu Releases Wiki](https://wiki.ubuntu.com/Releases?_ga=2.68724113.1007593536.1658597507-1342059548.1658451533)
+* [Ubuntu EOL Upgrades](https://help.ubuntu.com/community/EOLUpgrades)
 * [Upgrade from 20.04 LTS or 21.10 to 22.04 LTS](https://help.ubuntu.com/community/JammyUpgrades#Ubuntu_Servers)
 
 [ref1]: https://lists.ubuntu.com/archives/ubuntu-announce/2022-January/000276.html
