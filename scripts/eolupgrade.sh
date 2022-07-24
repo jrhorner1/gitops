@@ -7,7 +7,7 @@ if [ $(whoami) != "root" ]; then
 fi
 
 # Change mirror source to old-releases.ubuntu.com since we're running an EOL version
-sed -i 's|http://ports.ubuntu.com/ubuntu-ports/|http://old-releases.ubuntu.com/ubuntu/|g' /etc/apt/sources.list
+sed -E -i 's|http://ports.ubuntu.com/ubuntu-ports/?|http://old-releases.ubuntu.com/ubuntu/|g' /etc/apt/sources.list
 
 # Update package lists from the new source and install any available updates
 apt-get update
