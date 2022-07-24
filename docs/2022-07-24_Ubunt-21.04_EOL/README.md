@@ -55,6 +55,7 @@ Run the [EOL upgrade script](../scripts/eolupgrade.sh) to update sources.list, i
 ```bash
 curl -OL https://raw.githubusercontent.com/jrhorner1/gitops/main/scripts/eolupgrade.sh
 chmod +x eolupgrade.sh
+tmux new -s release-upgrade
 sudo ./eolupgrade.sh
 sudo reboot now
 ```
