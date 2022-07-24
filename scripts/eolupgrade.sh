@@ -19,8 +19,8 @@ apt dist-upgrade -yq
 # Autoremove any packages no longer required
 apt autoremove -yq
 
-# Set default behavoir for release upgrader to "lts"
-sed -E -i 's/Prompt=(never|normal|lts)/Prompt=normal/g' /etc/update-manager/release-upgrades
+# Set default behavoir for `do-release-upgrade` script
+sed -E -i 's/Prompt=(never|normal|lts)/Prompt=lts/g' /etc/update-manager/release-upgrades
 
 # Bypass unsupported upgrade check in `do-release-upgrade` script
 sed -i 's/continue/pass/g' /usr/lib/python3/dist-packages/UpdateManager/Core/MetaRelease.py # line 315
