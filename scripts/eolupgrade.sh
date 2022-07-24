@@ -1,9 +1,15 @@
 #!/bin/bash
 
+# Sanity check release version
+if [ $(lsb_release -rs) != "21.04" ]; then
+    echo "This script is intended to upgrade Ubuntu 21.04 to 21.10 only."
+    exit 1
+fi
+
 # Sanity check for root
 if [ $(whoami) != "root" ]; then
     echo 'Try: sudo !!'
-    exit 1
+    exit 2
 fi
 
 # Create a backup of /etc/apt/sources.list
