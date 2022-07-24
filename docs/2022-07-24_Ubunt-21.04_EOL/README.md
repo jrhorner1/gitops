@@ -64,7 +64,7 @@ When the host comes back up, create a new tmux session and begin the upgrade to 
 
 ```bash
 tmux new -s release-upgrade
-sudo do-release-upgrade
+sudo do-release-upgrade -f DistUpgradeViewNonInteractive
 cat /etc/*release
 sudo reboot now
 ```
