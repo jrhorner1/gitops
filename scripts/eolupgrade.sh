@@ -21,7 +21,7 @@ sed -E -i 's|http://ports.ubuntu.com/ubuntu-ports/?|http://old-releases.ubuntu.c
 export DEBIAN_FRONTEND=noninteractive
 apt update
 apt upgrade -yq
-apt dist-upgrade -yq
+apt full-upgrade -yq # https://www.unix.com/man-page/Linux/8/aptitude/
 # Autoremove any packages no longer required
 apt autoremove -yq
 
@@ -36,7 +36,7 @@ do-release-upgrade -f DistUpgradeViewNonInteractive
 apt autoremove -yq
 
 # Print release information to terminal to verify
-cat /etc/*release
+lsb_release -a
 
 printf "\n%s\n\t%s\n\t%s\n\n" \
 "To perform the upgrade to 22.04 LTS, reboot then run the upgrade script in a tmux session:" \
