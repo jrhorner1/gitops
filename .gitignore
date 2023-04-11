@@ -1,0 +1,4 @@
+*.iso
+
+# MacOS
+.DS_Store
