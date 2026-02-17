@@ -1,0 +1,99 @@
+---
+
+- name: ipxe
+  hosts: ipxeservers
+  remote_user: root
+
+  vars_files:
+    - vars.yaml
+
+  tasks:
+  - name: Create directory structure
+    ansible.builtin.file:
+      path: '/mnt/{{ item }}'
+      state: directory
+      mode: '0755'
+    loop:
+      - tftboot
+      - nfs
+      - html
+
+  - name: Create folder symlinks 
+    ansible.builtin.file:
+      src: '/mnt/{{ item.src }}'
+      dest: '/{{ item.dest }}'
+      state: link
+    loop:
+      - { src: tftboot, dest: tftboot }
+      - { src: nfs, dest: nfs }
+      - { src: html, dest: var/www/html }
+
+  - name: Install required packages
+    ansible.builtin.package:
+      name: "{{ required_packages }}"
+      state: latest
+
+  - name: Download & Unzip Raspberry Pi UEFI boot files
+    ansible.builtin.unarchive:
+      src: "{{ RPi4UEFI_url }}"
+      dest: /tftpboot/
+      remote_src: yes
+      owner: dnsmasq
+      group: nobody
+      mode: "0755"
+
+  - name: Setup talosOS boot files
+    block:
+      - name: Create talos folder
+        ansible.builtin.file:
+          path: "/var/www/html/talos/"
+          state: directory
+
+      - name: Download initramfs
+        ansible.builtin.get_url:
+          url: "https://github.com/siderolabs/talos/releases/download/{{ talos.version }}/initramfs-{{ item }}.xz"
+          dest: "/var/www/html/talos/initramfs-{{ item }}.xz"
+        loop: "{{ talos.arch }}"
+
+      - name: Download vmlinuz
+        ansible.builtin.get_url:
+          url: "https://github.com/siderolabs/talos/releases/download/{{ talos.version }}/vmlinuz-{{ item }}"
+          dest: "/var/www/html/talos/vmlinuz-{{ item }}"
+        loop: "{{ talos.arch }}"
+
+      - name: Configure iPXE file
+        ansible.builtin.template:
+          src: templates/talos.ipxe.j2
+          dest: "/var/www/html/talos/talos-{{ item }}.ipxe"
+        loop: "{{ talos.arch }}"
+
+  - name: Apply dnsmasq configuration
+    ansible.builtin.template:
+      src: templates/dnsmasq.conf.j2
+      dest: /etc/dnsmasq.conf
+    notify: Restart dnsmasq
+
+  - name: Apply nginx site configuration
+    ansible.builtin.template:
+      src: templates/ipxe.conf.j2
+      dest: /etc/nginx/sites-available/ipxe.conf
+    notify: Restart nginx
+
+  - name: enable nginx site 
+    ansible.builtin.file:
+      src: /etc/nginx/sites-available/ipxe.conf
+      dest: /etc/nginx/sites-enabled/ipxe.conf
+      state: link
+    notify: Restart nginx
+
+  handlers:
+  - name: Restart dnsmasq
+    ansble.builtin.service:
+      name: dnsmasq
+      state: restarted
+
+  - name: Restart nginx
+    ansible.builtin.service:
+      name: nginx
+      state: restarted
+

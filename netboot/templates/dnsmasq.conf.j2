@@ -1,0 +1,51 @@
+# Disable DNS
+port={{ dnsmasq.port }}
+
+# DHCP Configuration
+interface={{ dnsmasq.interface }}
+dhcp-range={{ dnsmasq.dhcp-range }}{{ if dnsmasq.dhcp-proxy }},proxy{{ endif }}
+
+# TFTP Configuration
+{{ if dnsmasq.enable-tftp }}
+enable-tftp
+{{ if dnsmasq.tftp-secure }}
+tftp-secure # req. chown tftp-root to dnsmasq user
+{{ endif }}
+tftp-root={{ dnsmasq.tftp-root }}
+{{ if dnsmasq.tftp-unique-root }}
+tftp-unique-root=mac
+{{ endif }}
+{{ endif }}
+
+# PXE settings
+# rpi64
+pxe-service=0,"Raspberry Pi Boot"
+# bios
+dhcp-match=set:bios,option:client-arch,0
+dhcp-boot=tag:bios,bios/undionly.kpxe
+# amd64
+dhcp-match=set:efi-amd64,option:client-arch,7
+dhcp-match=set:efi-amd64,option:client-arch,9
+dhcp-boot=tag:efi-amd64,amd64/ipxe.efi
+# arm64
+dhcp-match=set:efi-arm64,option:client-arch,11
+dhcp-boot=tag:efi-arm64,arm64/ipxe.efi
+
+# iPXE
+dhcp-userclass=set:ipxe,iPXE
+dhcp-boot=tag:ipxe,tag:efi-amd64,http://{{ ansible_host | default(ansible_default_ipv4['address']) }}/talos-amd64.ipxe
+dhcp-boot=tag:ipxe,tag:efi-arm64,http://{{ ansible_host | default(ansible_default_ipv4['address']) }}/talos-arm64.ipxe
+
+# UEFI HTTP
+# amd64
+dhcp-match=set:efi64-http,option:client-arch,16 # x64 UEFI HTTP (16)
+dhcp-boot=tag:efi64-http,http://{{ ansible_host | default(ansible_default_ipv4['address']) }}/talos-amd64.ipxe
+# arm64
+dhcp-match=set:efiarm64-http,option:client-arch,19 # ARM64 UEFI HTTP (19)
+dhcp-boot=tag:efiarm64-http,http://{{ ansible_host | default(ansible_default_ipv4['address']) }}/talos-arm64.ipxe
+
+# Logging configuration
+{{ if dnsmasq.log-dhcp }}
+log-dhcp
+log-facility={{ dnsmasq.log-facility }}
+{{ endif }}

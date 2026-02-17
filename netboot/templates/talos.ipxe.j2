@@ -1,0 +1,6 @@
+#!ipxe
+
+imgfree
+kernel http://{{ ansible_host | default(ansible_default_ipv4['address']) }}/talos/vmlinuz-{{ item }} talos.platform=metal console=tty0 {{ if item == "arm64" }}console=ttyAMA0,115200 {{ endif }}sysctl.kernel.kexec_load_disabled=1 talos.dashboard.disabled=1 init_on_alloc=1 slab_nomerge pti=on consoleblank=0 nvme_core.io_timeout=4294967295 printk.devkmsg=on
+initrd http://{{ ansible_host | default(ansible_default_ipv4['address']) }}/talos/initramfs-{{ item }}.xz
+boot

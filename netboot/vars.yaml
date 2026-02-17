@@ -1,0 +1,32 @@
+---
+
+required_packages:
+  - dnsmasq
+  - nfs-system-kernel
+  - nginx
+
+RPi4UEFI:
+  version: "v1.50"
+  url: "https://github.com/pftf/RPi4/releases/download/{{ RPi4UEFI.version }}/RPi4_UEFI_Firmware_{{ RPi4UEFI.version }}.zip"
+
+talos:
+  version: "v1.12.4"
+  arch:
+    - amd64
+    - arm64
+
+dnsmasq:
+  port: 0
+  interface: "{{ ansible_facts.ansible_default_ipv4.interface }}"
+  dhcp-range: "192.168.148.0"
+  dhcp-proxy: true
+  enable-tftp: true
+  tftp-root: "/tftpboot"
+  tftp-unique-root: false
+  log-dhcp: true
+  log-facility: "/var/log/dnsmasq"
+
+nginx:
+  port: 80
+  root: "/var/www/html"
+  server_name: "_"
