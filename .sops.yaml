@@ -1,0 +1,7 @@
+creation_rules:
+  - path_regex: .+\.yaml$
+    age: 
+      - age174luevrlesxq8ac7yg7rech345dk9tvk5xqvg2y505a0eq5y0pfsgmlvw7
+  - path_regex: talosconfig$
+    age: 
+      - age174luevrlesxq8ac7yg7rech345dk9tvk5xqvg2y505a0eq5y0pfsgmlvw7
